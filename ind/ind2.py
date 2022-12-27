@@ -38,7 +38,9 @@ def add(filename, name, group, grade):
 @click.argument('filename')
 @click.option('--select', '-s', type=int)
 def display(filename, select):
-    # Заголовок таблицы.
+    """
+    Вывод студентов
+    """
     students = load_students(filename)
     if select == 1:
         students = selected(students)
@@ -74,6 +76,9 @@ def display(filename, select):
 
 
 def selected(list):
+    """
+    Создать список выбранных студентов
+    """
     # Проверить сведения студентов из списка.
     students = []
     for student in list:
@@ -84,6 +89,9 @@ def selected(list):
 
 
 def load_students(filename):
+    """
+    Загрузить студентов
+    """
     with open(filename, "r", encoding="utf-8") as fin:
         return json.load(fin)
 

@@ -60,6 +60,9 @@ def show_list(students):
 
 
 def show_selected(students):
+    """
+    Вывести список выбранных студентов с баллом выше 4.0
+    """
     # Проверить сведения студентов из списка.
     result = []
     for student in students:
@@ -70,6 +73,9 @@ def show_selected(students):
 
 
 def help_1():
+    """
+    Функция помощи
+    """
     print("Список команд:\n")
     print("add - добавить студента;")
     print("display - вывести список студентов;")
@@ -80,11 +86,17 @@ def help_1():
 
 
 def save_students(file_name, students):
+    """
+    Сохранение студентов
+    """
     with open(file_name, "w", encoding="utf-8") as fout:
         json.dump(students, fout, ensure_ascii=False, indent=4)
 
 
 def load_students(file_name):
+    """
+    Загрузить студентов
+    """
     with open(file_name, "r", encoding="utf-8") as fin:
         return json.load(fin)
 
